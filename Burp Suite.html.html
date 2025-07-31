@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burp Suite - Web Security Testing Toolkit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            transition: width .3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .edition-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .edition-table th, .edition-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .edition-table th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+        }
+        
+        .edition-table tr:hover {
+            background-color: #f8fafc;
+        }
+        
+        .check-mark {
+            color: #10b981;
+            font-size: 1.2rem;
+        }
+        
+        .x-mark {
+            color: #ef4444;
+            font-size: 1.2rem;
+        }
+        
+        .attack-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .attack-card:hover {
+            transform: translateX(5px);
+            border-left-color: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/01d603cc-22ea-4939-9409-c2abf07e55f4.png" alt="Burp Suite logo - A stylized purple insect resembling a stag beetle" class="h-10 w-10">
+                    <h1 class="text-2xl font-bold">Burp Suite</h1>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#overview" class="nav-link font-medium">Overview</a>
+                    <a href="#features" class="nav-link font-medium">Features</a>
+                    <a href="#editions" class="nav-link font-medium">Editions</a>
+                    <a href="#capabilities" class="nav-link font-medium">Capabilities</a>
+                    <a href="#dangers" class="nav-link font-medium">Considerations</a>
+                </div>
+                <button class="md:hidden">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">The Industry Standard for Web Security Testing</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Professional toolkit for ethical hackers, penetration testers, and security teams</p>
+            <!-- Buttons removed as requested -->
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">🔐 Burp Suite – Full Details</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">📌 Overview</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Burp Suite is a professional-grade toolkit for testing the security of web applications. Developed by PortSwigger, it's widely used by ethical hackers, penetration testers, and application security teams. The tool acts as an intermediary (proxy) between the tester's browser and the target web server, allowing inspection and manipulation of HTTP/S traffic in real time.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg flex-1 min-w-[200px]">
+                            <i class="fas fa-user-shield text-blue-500 text-2xl mb-2"></i>
+                            <h4 class="font-semibold">Ethical Hacking</h4>
+                            <p class="text-sm text-gray-600">Trusted by security professionals worldwide</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg flex-1 min-w-[200px]">
+                            <i class="fas fa-lock text-blue-500 text-2xl mb-2"></i>
+                            <h4 class="font-semibold">Web App Security</h4>
+                            <p class="text-sm text-gray-600">Comprehensive testing capabilities</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7e8033a5-2293-4727-bfcb-d8e39ac3c87c.png" alt="Burp Suite interface showing multiple security testing tools with HTTP traffic inspection" class="rounded-lg shadow-xl w-full">
+                    <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-lg shadow-lg border border-gray-200">
+                        <span class="text-sm font-semibold text-gray-700">Burp Suite Professional 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editions Section -->
+    <section id="editions" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">🧾 Versions & Editions</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Community Edition -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">1. Community Edition</h3>
+                        <p class="text-gray-600">Free version for learning</p>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Proxy tool for traffic interception</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Repeater for manual request editing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Decoder for payload manipulation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Basic Intruder (slow speed)</span>
+                        </li>
+                        <li class="flex items-start text-gray-400">
+                            <i class="fas fa-times text-red-400 mt-1 mr-2"></i>
+                            <span>No scanner or collaborator</span>
+                        </li>
+                    </ul>
+                    <!-- Download button removed as requested -->
+                </div>
+                
+                <!-- Professional Edition -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-2 border-blue-500 transform scale-105 z-10">
+                    <div class="text-center mb-6">
+                        <div class="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">POPULAR</div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">2. Professional Edition</h3>
+                        <p class="text-gray-600">\$449/year (paid version)</p>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Everything in Community Edition</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Full-speed Intruder</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Advanced Scanner</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Collaborator client for OAST</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Custom extensions support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Automation and enhanced reporting</span>
+                        </li>
+                    </ul>
+                    <!-- Trial button removed as requested -->
+                </div>
+                
+                <!-- Enterprise Edition -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">3. Enterprise Edition</h3>
+                        <p class="text-gray-600">For large organizations</p>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Built for automated, scalable scanning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>CI/CD integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Web-based dashboard</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Multi-user deployment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Everything in Professional Edition</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-800 hover:bg-gray-900 text-white py-3 rounded-md font-medium transition duration-300">
+                        Contact Sales
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Comparison Table -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">🆚 Summary Table: Editions</h3>
+                    <div class="overflow-x-auto">
+                        <table class="edition-table w-full">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Community</th>
+                                    <th>Professional</th>
+                                    <th>Enterprise</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Proxy</td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Repeater</td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Decoder/Comparer</td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Intruder (full-speed)</td>
+                                    <td><i class="x-mark fas fa-times"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Scanner</td>
+                                    <td><i class="x-mark fas fa-times"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Collaborator</td>
+                                    <td><i class="x-mark fas fa-times"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Extensions/BApp support</td>
+                                    <td><i class="x-mark fas fa-times"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>CI/CD Integration</td>
+                                    <td><i class="x-mark fas fa-times"></i></td>
+                                    <td><i class="x-mark fas fa-times"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Web dashboard & scheduling</td>
+                                    <td><i class="x-mark fas fa-times"></i></td>
+                                    <td><i class="x-mark fas fa-times"></i></td>
+                                    <td><i class="check-mark fas fa-check"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">🧰 Main Tools in Burp Suite</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Proxy -->
+                <div class="bg-gray-50 p-6 rounded-lg feature-card transition duration-300">
+                    <div class="text-blue-500 text-3xl mb-4">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">🔹 Proxy</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Intercepts HTTP/S requests and responses</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Allows modification of parameters, headers, cookies, etc.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Core tool for manual exploration</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Target -->
+                <div class="bg-gray-50 p-6 rounded-lg feature-card transition duration-300">
+                    <div class="text-blue-500 text-3xl mb-4">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">🔹 Target</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Visual map of the application</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Organizes URLs, parameters, and discovered features</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Useful for understanding structure and workflow</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Intruder -->
+                <div class="bg-gray-50 p-6 rounded-lg feature-card transition duration-300">
+                    <div class="text-blue-500 text-3xl mb-4">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">🔹 Intruder</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Fuzzing and brute-force tool</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Test for injection flaws, authentication bypass, and business logic issues</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Four modes: Sniper, Battering Ram, Pitchfork, Cluster Bomb</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Repeater -->
+                <div class="bg-gray-50 p-6 rounded-lg feature-card transition duration-300">
+                    <div class="text-blue-500 text-3xl mb-4">
+                        <i class="fas fa-redo"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">🔹 Repeater</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Manual request editor</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Send and resend HTTP requests with custom changes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Ideal for testing input validation, sessions, or exploits</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Scanner -->
+                <div class="bg-gray-50 p-6 rounded-lg feature-card transition duration-300">
+                    <div class="text-blue-500 text-3xl mb-4">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">🔹 Scanner (Pro/Enterprise only)</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Automatic detection of vulnerabilities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Includes XSS, SQL Injection, CSRF, SSRF, Clickjacking</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Active and passive scanning options</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Extender -->
+                <div class="bg-gray-50 p-6 rounded-lg feature-card transition duration-300">
+                    <div class="text-blue-500 text-3xl mb-4">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">🔹 Extender (BApp Store)</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Install or create extensions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Supports Java, Python (Jython), Ruby (JRuby)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2 text-sm"></i>
+                            <span>Popular extensions: ActiveScan++, Param Miner, Turbo Intruder</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section id="capabilities" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">💣 Types of Attacks You Can Detect/Test</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-lg attack-card shadow-sm">
+                    <h3 class="text-lg font-semibold mb-2 flex items-center">
+                        <i class="fas fa-database text-blue-500 mr-2"></i>
+                        SQL Injection
+                    </h3>
+                    <p class="text-gray-600">Identify and exploit database vulnerabilities through SQL queries</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg attack-card shadow-sm">
+                    <h3 class="text-lg font-semibold mb-2 flex items-center">
+                        <i class="fas fa-code text-blue-500 mr-2"></i>
+                        Cross-site scripting (XSS)
+                    </h3>
+                    <p class="text-gray-600">Find and test for script injection vulnerabilities</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg attack-card shadow-sm">
+                    <h3 class="text-lg font-semibold mb-2 flex items-center">
+                        <i class="fas fa-retweet text-blue-500 mr-2"></i>
+                        Cross-site request forgery (CSRF)
+                    </h3>
+                    <p class="text-gray-600">Test for unauthorized command transmissions</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg attack-card shadow-sm">
+                    <h3 class="text-lg font-semibold mb-2 flex items-center">
+                        <i class="fas fa-file-code text-blue-500 mr-2"></i>
+                        XML external entity (XXE)
+                    </h3>
+                    <p class="text-gray-600">Identify XML processing vulnerabilities</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg attack-card shadow-sm">
+                    <h3 class="text-lg font-semibold mb-2 flex items-center">
+                        <i class="fas fa-server text-blue-500 mr-2"></i>
+                        Server-side request forgery (SSRF)
+                    </h3>
+                    <p class="text-gray-600">Test for server-side resource access vulnerabilities</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg attack-card shadow-sm">
+                    <h3 class="text-lg font-semibold mb-2 flex items-center">
+                        <i class="fas fa-mouse-pointer text-blue-500 mr-2"></i>
+                        Clickjacking
+                    </h3>
+                    <p class="text-gray-600">Identify UI redressing vulnerabilities</p>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">🛠️ Core Functions</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <ul class="text-gray-600 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Intercept and modify HTTP requests/responses</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Scan for vulnerabilities both actively and passively</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Fuzz endpoints and parameters with payloads</span>
+                        </li>
+                    </ul>
+                    <ul class="text-gray-600 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Analyze tokens and randomness</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Extend functionality with open-source and custom-built plugins</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Automate large-scale scanning in Enterprise deployments</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="mt-8 bg-blue-50 p-6 rounded-lg">
+                    <h4 class="text-xl font-semibold mb-4 text-blue-800">📆 Version Info (as of mid-2025)</h4>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-1">Latest Version:</h5>
+                            <p>2025.6.5</p>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-1">Compatible with:</h5>
+                            <p>Windows, macOS, Linux, ARM</p>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-700 mb-1">Updates:</h5>
+                            <p>Monthly feature updates and vulnerability definition upgrades</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <h4 class="text-xl font-semibold mb-4 text-gray-800">🧠 Why Professionals Choose Burp Suite</h4>
+                    <ul class="text-gray-600 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
+                            <span>Used in top penetration testing teams, bug bounty platforms, and security firms</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
+                            <span>Combines manual control and automated detection</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
+                            <span>Supports API testing (REST, GraphQL, SOAP)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
+                            <span>Continually updated with cutting-edge research</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
+                            <span>Massive ecosystem of plugins and integrations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
+                            <span>Trusted by professionals in government, finance, healthcare, and tech</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dangers Section -->
+    <section id="dangers" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">⚠️ Dangers & Limitations</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-red-50 p-8 rounded-xl border-l-4 border-red-500">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">❗ Legal Risk</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Using Burp Suite against systems you do not own or have permission to test is illegal. Always obtain proper authorization before conducting any security testing.
+                    </p>
+                </div>
+                
+                <div class="bg-yellow-50 p-8 rounded-xl border-l-4 border-yellow-500">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">❗ False Positives/Negatives</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Scanner is powerful, but not foolproof. Manual testing is critical to verify findings and discover vulnerabilities automated tools might miss.
+                    </p>
+                </div>
+                
+                <div class="bg-orange-50 p-8 rounded-xl border-l-4 border-orange-500">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">❗ Performance</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Full scans can be resource-intensive. May slow or crash weak servers. Always schedule intensive scans during maintenance windows and monitor target systems.
+                    </p>
+                </div>
+                
+                <div class="bg-blue-50 p-8 rounded-xl border-l-4 border-blue-500">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">❗ Learning Curve</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Burp requires familiarity with HTTP/S, app logic, and security testing principles to use effectively. Training and practice are essential for proper utilization.
+                    </p>
+                </div>
+                
+                <div class="bg-purple-50 p-8 rounded-xl border-l-4 border-purple-500 col-span-full">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">❗ Ethical Use</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Always operate within authorized environments or bug bounty programs. Ethical hacking requires strict adherence to legal boundaries and professional standards.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Start Testing with Burp Suite?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Join thousands of security professionals who trust Burp Suite for their web application testing needs</p>
+            <div class="flex justify-center">
+                <button class="bg-blue-800 hover:bg-blue-900 text-white px-8 py-4 rounded-md font-medium text-lg transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-book mr-2"></i>View Documentation
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-4">Burp Suite</h4>
+                    <p class="mb-4">The industry standard toolkit for web security testing</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">Community Edition</a></li>
+                        <li><a href="#" class="hover:text-white">Professional Edition</a></li>
+                        <li><a href="#" class="hover:text-white">Enterprise Edition</a></li>
+                        <li><a href="#" class="hover:text-white">Extensions</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" class="hover:text-white">Web Security Academy</a></li>
+                        <li><a href="#" class="hover:text-white">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">About</a></li>
+                        <li><a href="#" class="hover:text-white">Careers</a></li>
+                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                        <li><a href="#" class="hover:text-white">Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
+                <p>© 2025 PortSwigger Ltd. All rights reserved.</p>
+                <p class="mt-2">Burp Suite® is a registered trademark of PortSwigger Ltd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Mobile menu toggle would go here
+            // But not implemented in this example
+        });
+    </script>
+</body>
+</html>

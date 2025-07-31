@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kali Linux Research Brief</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        
+        .code-font {
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .kali-gradient {
+            background: linear-gradient(135deg, #557CF2 0%, #3710B3 100%);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="kali-gradient text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <img src="https://th.bing.com/th?q=Kali+Linux+Folder+Icon&w=120&h=120&c=1&rs=1&qlt=70&r=0&o=7&cb=1&dpr=1.4&pid=InlineBlock&rm=3&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247" alt="Kali Linux logo" class="rounded w-10 h-10">
+                    <h1 class="text-2xl font-bold">Kali Linux Research</h1>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#usecases" class="nav-link">Use Cases</a>
+                    <a href="#comparison" class="nav-link">Comparison</a>
+                    <a href="#tools" class="nav-link">Tools</a>
+                </nav>
+                <button class="md:hidden">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="kali-gradient text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Kali Linux Research Brief</h2>
+                <p class="text-xl mb-8">A specialized Debian-based Linux distribution designed for penetration testing and security auditing</p>
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <p class="text-white text-sm">kali-research-brief.conf</p>
+                    </div>
+                    <div class="p-4">
+                        <p class="code-font text-green-400">confidence_score: 0.93 | freshness: 2025-07</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <div class="p-6 rounded-lg shadow-md bg-slate-50 border border-slate-200">
+                    <h3 class="text-2xl font-bold mb-4">Consensus View</h3>
+                    <p class="mb-4">Kali Linux is a specialized Debian-based Linux distribution designed primarily for advanced penetration testing and security auditing. It is widely used by cybersecurity professionals, ethical hackers, and security researchers due to its robust toolkit and flexible architecture.</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="bg-slate-200 text-slate-800 px-3 py-1 rounded-full text-sm">Debian-based</span>
+                        <span class="bg-slate-200 text-slate-800 px-3 py-1 rounded-full text-sm">600+ tools</span>
+                        <span class="bg-slate-200 text-slate-800 px-3 py-1 rounded-full text-sm">Security-focused</span>
+                        <span class="bg-slate-200 text-slate-800 px-3 py-1 rounded-full text-sm">Industry standard</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Key Features of Kali Linux</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 tool-card transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full kali-gradient text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pre-installed Security Tools</h3>
+                    <p class="mb-4">Over 600 tools are included by default for various security tasks:</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Penetration testing (Metasploit, Burp Suite)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Wireless attacks (Aircrack-ng)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Web application testing (Nikto, OWASP ZAP)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 tool-card transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full kali-gradient text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-server text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Debian-Based Architecture</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-cube text-blue-500 mt-1 mr-2"></i>
+                            <span>Compatible with <code class="code-font bg-slate-100 px-1 rounded">.deb</code> packages</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-sync-alt text-blue-500 mt-1 mr-2"></i>
+                            <span>Regular updates using APT</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-cloud text-blue-500 mt-1 mr-2"></i>
+                            <span>Seamless cloud, container, and VM integration</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 tool-card transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full kali-gradient text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-sliders-h text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Highly Customizable</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <i class="fas fa-desktop text-purple-500 mt-1 mr-2"></i>
+                            <span>Multiple desktop environments (Xfce, GNOME, KDE)</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-mobile-alt text-purple-500 mt-1 mr-2"></i>
+                            <span>"Kali NetHunter" available for Android</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-usb text-purple-500 mt-1 mr-2"></i>
+                            <span>Live USB/CD boot with persistence mode</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 tool-card transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full kali-gradient text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-lock text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Security-First Design</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <i class="fas fa-user-shield text-green-600 mt-1 mr-2"></i>
+                            <span>Non-root user by default since 2020</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-certificate text-green-600 mt-1 mr-2"></i>
+                            <span>Signed packages and secure boot support</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-shield-alt text-green-600 mt-1 mr-2"></i>
+                            <span>Hardened kernel options available</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 tool-card transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full kali-gradient text-white flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Community and Support</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <i class="fas fa-shield-virus text-blue-600 mt-1 mr-2"></i>
+                            <span>Maintained by Offensive Security</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-book text-blue-600 mt-1 mr-2"></i>
+                            <span>Rich documentation and forums</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-certificate text-blue-600 mt-1 mr-2"></i>
+                            <span>Used in OSCP certification</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature Diagram -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 flex flex-col justify-center items-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3fbf24e9-42a0-458d-830e-c46568008140.png" alt="Diagram showing Kali Linux architecture with core components including security tools, Debian base, and customization layers" class="mb-4 rounded-lg">
+                    <p class="text-sm text-center text-slate-500">Kali Linux architecture overview</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section id="usecases" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Use Cases</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse">
+                        <thead class="kali-gradient text-white">
+                            <tr>
+                                <th class="p-4 text-left rounded-tl-lg">Use Case</th>
+                                <th class="p-4 text-left rounded-tr-lg">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-medium">Penetration Testing</td>
+                                <td class="p-4">Simulate real-world attacks to find vulnerabilities in systems or apps</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-medium">Digital Forensics</td>
+                                <td class="p-4">Recover and investigate data from compromised systems</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-medium">Red Teaming</td>
+                                <td class="p-4">Advanced threat emulation, lateral movement, and evasion testing</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-medium">CTFs & Education</td>
+                                <td class="p-4">Widely used in cybersecurity competitions and academic programs</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-medium rounded-bl-lg">Security Research</td>
+                                <td class="p-4 rounded-br-lg">Reverse engineering, protocol analysis, and exploit development</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-12 grid md:grid-cols-2 gap-8">
+                    <div class="bg-slate-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4">Penetration Testing Workflow</h3>
+                        <ol class="space-y-3 list-decimal pl-5">
+                            <li>Reconnaissance and discovery</li>
+                            <li>Vulnerability scanning</li>
+                            <li>Exploitation</li>
+                            <li>Post-exploitation</li>
+                            <li>Reporting</li>
+                        </ol>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4">Forensic Investigation</h3>
+                        <ol class="space-y-3 list-decimal pl-5">
+                            <li>Evidence acquisition</li>
+                            <li>Data recovery</li>
+                            <li>Timeline analysis</li>
+                            <li>File carving</li>
+                            <li>Report generation</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="py-16 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Comparison to Alternatives</h2>
+            
+            <div class="max-w-5xl mx-auto overflow-x-auto">
+                <table class="w-full border-collapse">
+                    <thead class="kali-gradient text-white">
+                        <tr>
+                            <th class="p-4 text-left rounded-tl-lg">Distro</th>
+                            <th class="p-4 text-left">Focus Area</th>
+                            <th class="p-4 text-left">Pros</th>
+                            <th class="p-4 text-left rounded-tr-lg">Cons</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 bg-white">
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-4 font-medium">Kali Linux</td>
+                            <td class="p-4">Offensive security</td>
+                            <td class="p-4">Large toolset, well-maintained</td>
+                            <td class="p-4">Resource-heavy for minimal setups</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-4 font-medium">Parrot OS</td>
+                            <td class="p-4">Privacy + Pentesting</td>
+                            <td class="p-4">Lightweight, sandboxing tools</td>
+                            <td class="p-4">Smaller community than Kali</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-4 font-medium">BackBox</td>
+                            <td class="p-4">Lightweight testing</td>
+                            <td class="p-4">User-friendly interface</td>
+                            <td class="p-4">Less comprehensive tool coverage</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-4 font-medium rounded-bl-lg">BlackArch</td>
+                            <td class="p-4">Arch-based offensive</td>
+                            <td class="p-4">Massive tool repository (>2700)</td>
+                            <td class="p-4 rounded-br-lg">Not beginner-friendly</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-12 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Selection Guidance</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-medium mb-2 text-blue-700">Choose Kali Linux if:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>You need comprehensive security tools</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>Debian compatibility is important</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>You value strong community support</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2 text-red-700">Consider alternatives if:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-2"></i>
+                                    <span>You need extreme lightweight performance</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-2"></i>
+                                    <span>Arch Linux familiarity is preferred</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-2"></i>
+                                    <span>Mobile device support is critical</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Notable Built-in Tools</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Tool 1 -->
+                <div class="bg-slate-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full kali-gradient text-white flex items-center justify-center mr-3">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <h3 class="text-lg font-bold">Metasploit Framework</h3>
+                    </div>
+                    <p class="text-slate-700">Exploit development and execution platform for penetration testing</p>
+                    <div class="mt-3">
+                        <span class="inline-block bg-slate-200 text-slate-800 px-2 py-1 rounded-full text-xs">Exploitation</span>
+                    </div>
+                </div>
+                
+                <!-- Tool 2 -->
+                <div class="bg-slate-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full kali-gradient text-white flex items-center justify-center mr-3">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-lg font-bold">Wireshark</h3>
+                    </div>
+                    <p class="text-slate-700">Network protocol analyzer for deep packet inspection and troubleshooting</p>
+                    <div class="mt-3">
+                        <span class="inline-block bg-slate-200 text-slate-800 px-2 py-1 rounded-full text-xs">Networking</span>
+                    </div>
+                </div>
+                
+                <!-- Tool 3 -->
+                <div class="bg-slate-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full kali-gradient text-white flex items-center justify-center mr-3">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <h3 class="text-lg font-bold">Hydra</h3>
+                    </div>
+                    <p class="text-slate-700">Parallelized login cracker supporting numerous protocols</p>
+                    <div class="mt-3">
+                        <span class="inline-block bg-slate-200 text-slate-800 px-2 py-1 rounded-full text-xs">Brute Force</span>
+                    </div>
+                </div>
+                
+                <!-- Tool 4 -->
+                <div class="bg-slate-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full kali-gradient text-white flex items-center justify-center mr-3">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <h3 class="text-lg font-bold">John the Ripper</h3>
+                    </div>
+                    <p class="text-slate-700">Fast password cracker supporting many hash types</p>
+                    <div class="mt-3">
+                        <span class="inline-block bg-slate-200 text-slate-800 px-2 py-1 rounded-full text-xs">Password Cracking</span>
+                    </div>
+                </div>
+                
+                <!-- Tool 5 -->
+                <div class="bg-slate-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full kali-gradient text-white flex items-center justify-center mr-3">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="text-lg font-bold">sqlmap</h3>
+                    </div>
+                    <p class="text-slate-700">Automatic SQL injection tool supporting database fingerprinting</p>
+                    <div class="mt-3">
+                        <span class="inline-block bg-slate-200 text-slate-800 px-2 py-1 rounded-full text-xs">SQL Injection</span>
+                    </div>
+                </div>
+                
+                <!-- Tool 6 -->
+                <div class="bg-slate-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full kali-gradient text-white flex items-center justify-center mr-3">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="text-lg font-bold">Maltego</h3>
+                    </div>
+                    <p class="text-slate-700">Open-source intelligence and forensics application for link analysis</p>
+                    <div class="mt-3">
+                        <span class="inline-block bg-slate-200 text-slate-800 px-2 py-1 rounded-full text-xs">OSINT</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 max-w-4xl mx-auto bg-slate-50 p-6 rounded-lg">
+                <h3 class="text-xl font-bold mb-4 text-center">Tool Categories</h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div>
+                        <h4 class="font-medium mb-2">Information Gathering</h4>
+                        <ul class="space-y-1 text-sm">
+                            <li>nmap</li>
+                            <li>recon-ng</li>
+                            <li>theHarvester</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2">Vulnerability Analysis</h4>
+                        <ul class="space-y-1 text-sm">
+                            <li>OpenVAS</li>
+                            <li>nikto</li>
+                            <li>lynis</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2">Forensics</h4>
+                        <ul class="space-y-1 text-sm">
+                            <li>Autopsy</li>
+                            <li>binwalk</li>
+                            <li>foremost</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="kali-gradient text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                    <div class="mb-6 md:mb-0">
+                        <div class="flex items-center space-x-2">
+                            <img src="https://th.bing.com/th?q=Kali+Linux+Folder+Icon&w=120&h=120&c=1&rs=1&qlt=70&r=0&o=7&cb=1&dpr=1.4&pid=InlineBlock&rm=3&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247" alt="Kali Linux logo" class="rounded w-10 h-10">
+                            <h2 class="text-xl font-bold">Kali Linux Research</h2>
+                        </div>
+                        <p class="mt-2 text-sm opacity-80">Advanced security tools for professionals</p>
+                    </div>
+                    
+                    <div class="flex space-x-6">
+                        <a href="#" class="hover:text-blue-200 transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-blue-200 transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-blue-200 transition-colors">
+                            <i class="fab fa-discord text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="border-t border-white/20 pt-8">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div>
+                            <h4 class="font-bold mb-4">Resources</h4>
+                            <ul class="space-y-2">
+                                <li><a href="#" class="hover:underline">Documentation</a></li>
+                                <li><a href="#" class="hover:underline">Training Courses</a></li>
+                                <li><a href="#" class="hover:underline">Blog</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">Downloads</h4>
+                            <ul class="space-y-2">
+                                <li><a href="#" class="hover:underline">Latest Release</a></li>
+                                <li><a href="#" class="hover:underline">Previous Versions</a></li>
+                                <li><a href="#" class="hover:underline">ARM Images</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">Community</h4>
+                            <ul class="space-y-2">
+                                <li><a href="#" class="hover:underline">Forums</a></li>
+                                <li><a href="#" class="hover:underline">Bug Tracker</a></li>
+                                <li><a href="#" class="hover:underline">IRC Channel</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center text-sm opacity-70">
+                    <p>© 2025 Kali Linux Research Brief. All content based on publicly available information.</p>
+                    <p class="mt-2">Not affiliated with Offensive Security or Kali Linux official project.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('button.md\\:hidden');
+        const navLinks = document.querySelector('nav.hidden.md\\:flex');
+        
+        if (mobileMenuButton && navLinks) {
+            mobileMenuButton.addEventListener('click', () => {
+                navLinks.classList.toggle('hidden');
+                navLinks.classList.toggle('flex');
+                navLinks.classList.toggle('flex-col');
+                navLinks.classList.toggle('absolute');
+                navLinks.classList.toggle('top-16');
+                navLinks.classList.toggle('right-4');
+                navLinks.classList.toggle('bg-slate-800');
+                navLinks.classList.toggle('p-4');
+                navLinks.classList.toggle('rounded-lg');
+                navLinks.classList.toggle('space-y-4');
+                navLinks.classList.toggle('space-x-8');
+            });
+        }
+    </script>
+</body>
+</html>

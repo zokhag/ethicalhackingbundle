@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethical Hacking Explained</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Ubuntu+Mono:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Ubuntu Mono', monospace;
+            background-color: #0a0a0a;
+            color: #00ff41;
+            overflow-x: hidden;
+        }
+        
+        .terminal-text {
+            font-family: 'Space Mono', monospace;
+        }
+        
+        .hacker-card {
+            background: rgba(10, 25, 10, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid #00ff41;
+            transition: all 0.3s ease;
+        }
+        
+        .hacker-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 65, 0.3);
+        }
+        
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+        
+        .matrix-text {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        .loading-bar {
+            animation: loading 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes loading {
+            0% {width: 0%;}
+            50% {width: 100%;}
+            100% {width: 0%;}
+        }
+        
+        .glitch {
+            animation: glitch-effect 3s infinite alternate;
+        }
+        
+        @keyframes glitch-effect {
+            0% {text-shadow: 1px 0 0 rgba(255,0,0,0.7), -1px 0 0 rgba(0,255,255,0.7);}
+            25% {text-shadow: -2px 0 0 rgba(255,0,0,0.7), 2px 0 0 rgba(0,255,255,0.7);}
+            50% {text-shadow: 3px 0 0 rgba(255,0,0,0.7), -3px 0 0 rgba(0,255,255,0.7); transform: skewX(5deg);}
+            75% {text-shadow: -4px 0 0 rgba(255,0,0,0.7), 4px 0 0 rgba(0,255,255,0.7);}
+            100% {text-shadow: 1px 0 0 rgba(255,0,0,0.7), -1px 0 0 rgba(0,255,255,0.7);}
+        }
+        
+        .tab {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix background effect -->
+    <div id="matrix" class="matrix-text w-full h-full fixed top-0 left-0"></div>
+    
+    <!-- Header -->
+    <header class="relative z-10">
+        <div class="container mx-auto px-6 py-16 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 glitch terminal-text">ETHICAL HACKING</h1>
+            <div class="loading-bar h-1 bg-green-500 w-1/3 mx-auto mb-8 rounded-full"></div>
+            <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">The art and science of securing digital systems through authorized penetration testing</p>
+            <div class="scroll-indicator">
+                <p class="mb-2">Scroll to explore</p>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-10 px-6 pb-32">
+        <!-- Introduction Section -->
+        <section class="max-w-5xl mx-auto mb-32">
+            <div class="hacker-card rounded-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 terminal-text">What Is Ethical Hacking?</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="mb-4">At its core, ethical hacking is the art—and science—of testing digital systems for weaknesses, but with a twist: it's done legally and with full authorization.</p>
+                        <p>Think of it as breaking into your own house to make sure the locks work. These "white-hat" hackers simulate cyberattacks on everything from networks and firewalls to mobile apps, mimicking real-world threats in order to strengthen security.</p>
+                    </div>
+                    <div class="flex justify-center">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=300&q=80" alt="Hacker working on laptop with code overlay" class="rounded-lg hover:scale-105 transition-transform duration-300">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Concepts Section -->
+        <section class="max-w-5xl mx-auto mb-32">
+            <h2 class="text-3xl font-bold mb-8 text-center terminal-text">⌨️ KEY CONCEPTS</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="hacker-card rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-3">Threats</h3>
+                    <p>Anything that could potentially damage a system - malware, phishing, DoS attacks.</p>
+                </div>
+                
+                <div class="hacker-card rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-3">Vulnerabilities</h3>
+                    <p>The flaws in a system that make damage possible - bugs, misconfigurations.</p>
+                </div>
+                
+                <div class="hacker-card rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-3">Exploits</h3>
+                    <p>Methods or code that leverage vulnerabilities, often delivering malicious payloads.</p>
+                </div>
+                
+                <div class="hacker-card rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-3">Attack Vectors</h3>
+                    <p>The routes hackers might take to breach a system - network, software, human.</p>
+                </div>
+                
+                <div class="hacker-card rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-3">Zero-Day Vulnerabilities</h3>
+                    <p>Flaws developers haven't yet discovered - the most dangerous threats.</p>
+                </div>
+                
+                <div class="hacker-card rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-3">Payloads</h3>
+                    <p>The malicious code or actions that occur after successful exploitation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hacker Types Section -->
+        <section class="max-w-5xl mx-auto mb-32">
+            <h2 class="text-3xl font-bold mb-8 text-center terminal-text">👨‍💻 THE HACKER SPECTRUM</h2>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                <!-- White Hat -->
+                <div class="hacker-card rounded-lg p-6 w-64 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-green-500 to-transparent opacity-0 group-hover:opacity-100 rounded-lg transition-all duration-300"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-full bg-green-900 flex items-center justify-center mb-4 mx-auto">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2933/2933245.png" alt="White hat hacker" class="w-16 h-16">
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center">WHITE HAT</h3>
+                        <p class="text-center">The good guys, working legally to protect systems.</p>
+                    </div>
+                </div>
+                
+                <!-- Black Hat -->
+                <div class="hacker-card rounded-lg p-6 w-64 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-transparent opacity-0 group-hover:opacity-100 rounded-lg transition-all duration-300"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-full bg-red-900 flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-3xl">👿</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center">BLACK HAT</h3>
+                        <p class="text-center">Malicious hackers breaching systems for personal gain.</p>
+                    </div>
+                </div>
+                
+                <!-- Gray Hat -->
+                <div class="hacker-card rounded-lg p-6 w-64 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-gray-500 to-transparent opacity-0 group-hover:opacity-100 rounded-lg transition-all duration-300"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-full bg-gray-700 flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-3xl">😐</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center">GRAY HAT</h3>
+                        <p class="text-center">Break rules without clear malicious intent.</p>
+                    </div>
+                </div>
+                
+                <!-- Script Kiddie -->
+                <div class="hacker-card rounded-lg p-6 w-64 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-transparent opacity-0 group-hover:opacity-100 rounded-lg transition-all duration-300"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-full bg-yellow-700 flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-3xl">👶</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center">SCRIPT KIDDIE</h3>
+                        <p class="text-center">Use tools without understanding them.</p>
+                    </div>
+                </div>
+                
+                <!-- Hacktivist -->
+                <div class="hacker-card rounded-lg p-6 w-64 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-purple-500 to-transparent opacity-0 group-hover:opacity-100 rounded-lg transition-all duration-300"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-full bg-purple-700 flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-3xl">✊</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center">HACKTIVIST</h3>
+                        <p class="text-center">Hack to promote social or political causes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section class="max-w-5xl mx-auto mb-32">
+            <h2 class="text-3xl font-bold mb-8 text-center terminal-text">🛠️ HACKER TOOLKIT</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="hacker-card rounded-lg p-6">
+                    <h3 class="text-2xl font-bold mb-4 flex items-center">
+                        <img src="https://icons.veryicon.com/png/o/computer--electronics/industrial-design-icon/reconnaissance-1.png" alt="Recon icon" class="w-8 h-8 mr-2">
+                        Reconnaissance
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <span class="bg-green-900 rounded p-1 mr-2">whois</span>
+                            <span>Domain registration lookup</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-green-900 rounded p-1 mr-2">Shodan</span>
+                            <span>Search engine for devices</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-green-900 rounded p-1 mr-2">nslookup</span>
+                            <span>DNS information gathering</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="hacker-card rounded-lg p-6">
+                    <h3 class="text-2xl font-bold mb-4">Scanning</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <span class="bg-green-900 rounded p-1 mr-2">Nmap</span>
+                            <span>Network mapping and port scanning</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-green-900 rounded p-1 mr-2">Nikto</span>
+                            <span>Web server vulnerability scanner</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-green-900 rounded p-1 mr-2">Dirb</span>
+                            <span>Directory brute-forcing</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="hacker-card rounded-lg p-6">
+                    <h3 class="text-2xl font-bold mb-4">Exploitation</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <span class="bg-green-900 rounded p-1 mr-2">Metasploit</span>
+                            <span>Penetration testing framework</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-green-900 rounded p-1 mr-2">Burp Suite</span>
+                            <span>Web traffic interception</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-green-900 rounded p-1 mr-2">SQLmap</span>
+                            <span>SQL injection testing</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="hacker-card rounded-lg p-6">
+                    <h3 class="text-2xl font-bold mb-4">Post-Exploitation</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <span class="bg-green-900 rounded p-1 mr-2">Mimikatz</span>
+                            <span>Credential extraction</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-green-900 rounded p-1 mr-2">Cobalt Strike</span>
+                            <span>Post-exploitation framework</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-green-900 rounded p-1 mr-2">Bloodhound</span>
+                            <span>AD enumeration and visualization</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phases Section -->
+        <section class="max-w-5xl mx-auto mb-32">
+            <h2 class="text-3xl font-bold mb-8 text-center terminal-text">🔍 HACKING PROCESS PHASES</h2>
+            
+            <div class="relative">
+                <div class="hacker-card rounded-lg p-8">
+                    <div class="grid md:grid-cols-5 gap-4">
+                        <!-- Phase 1 -->
+                        <div class="phase-card text-center p-4 relative group">
+                            <div class="w-16 h-16 rounded-full bg-green-900 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">1</span>
+                            </div>
+                            <h3 class="font-bold mb-2">Reconnaissance</h3>
+                            <p class="text-sm">Passive/active information gathering</p>
+                        </div>
+                        
+                        <!-- Phase 2 -->
+                        <div class="phase-card text-center p-4 relative group">
+                            <div class="w-16 h-16 rounded-full bg-green-900 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">2</span>
+                            </div>
+                            <h3 class="font-bold mb-2">Scanning</h3>
+                            <p class="text-sm">Identifying live systems and weak spots</p>
+                        </div>
+                        
+                        <!-- Phase 3 -->
+                        <div class="phase-card text-center p-4 relative group">
+                            <div class="w-16 h-16 rounded-full bg-green-900 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">3</span>
+                            </div>
+                            <h3 class="font-bold mb-2">Gain Access</h3>
+                            <p class="text-sm">Exploiting found vulnerabilities</p>
+                        </div>
+                        
+                        <!-- Phase 4 -->
+                        <div class="phase-card text-center p-4 relative group">
+                            <div class="w-16 h-16 rounded-full bg-green-900 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">4</span>
+                            </div>
+                            <h3 class="font-bold mb-2">Maintain Access</h3>
+                            <p class="text-sm">Creating persistent footholds</p>
+                        </div>
+                        
+                        <!-- Phase 5 -->
+                        <div class="phase-card text-center p-4 relative group">
+                            <div class="w-16 h-16 rounded-full bg-green-900 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">5</span>
+                            </div>
+                            <h3 class="font-bold mb-2">Cover Tracks</h3>
+                            <p class="text-sm">Removing evidence of intrusion</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Hacking Process Illustration -->
+        <section class="max-w-5xl mx-auto mb-32">
+            <div class="hacker-card rounded-lg overflow-hidden">
+<img src="ethical hacking.png" alt="Hacking process flow diagram" class="w-full h-auto">
+            </div>
+        </section>
+
+        <!-- Testing Types Section -->
+        <section class="max-w-5xl mx-auto mb-32">
+            <h2 class="text-3xl font-bold mb-8 text-center terminal-text">🧪 TESTING TYPES</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="hacker-card rounded-lg p-6 text-center">
+                    <div class="w-24 h-24 rounded-full bg-gray-900 mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-4xl">⬛</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Black Box Testing</h3>
+                    <p>Tester has no knowledge of the target system (external attacker perspective)</p>
+                </div>
+                
+                <div class="hacker-card rounded-lg p-6 text-center">
+                    <div class="w-24 h-24 rounded-full bg-white mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-4xl">⬜</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">White Box Testing</h3>
+                    <p>Full access to source code and documentation (internal knowledge)</p>
+                </div>
+                
+                <div class="hacker-card rounded-lg p-6 text-center">
+                    <div class="w-24 h-24 rounded-full bg-gray-500 mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-4xl">◻️</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Gray Box Testing</h3>
+                    <p>Limited insider knowledge (hybrid approach)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Path Section -->
+        <section class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center terminal-text">💼 CAREER PATH & CERTIFICATIONS</h2>
+            
+            <div class="hacker-card rounded-lg p-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="certifications">
+                        <h3 class="text-2xl font-bold mb-4">Recommended Certifications</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <span class="bg-green-900 rounded px-2 py-1 mr-2">CEH</span>
+                                <span>Certified Ethical Hacker (Entry-level)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="bg-green-900 rounded px-2 py-1 mr-2">eJPT</span>
+                                <span>Junior Penetration Tester (Practical)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="bg-green-900 rounded px-2 py-1 mr-2">OSCP</span>
+                                <span>Offensive Security Certified Professional</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="bg-green-900 rounded px-2 py-1 mr-2">CRTP</span>
+                                <span>Certified Red Team Professional</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="bg-green-900 rounded px-2 py-1 mr-2">CPENT</span>
+                                <span>Certified Penetration Testing Engineer</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resources">
+                        <h3 class="text-2xl font-bold mb-4">Practice Resources</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <span class="bg-green-900 rounded px-2 py-1 mr-2">HTB</span>
+                                <span>Hack The Box (Challenges & Labs)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="bg-green-900 rounded px-2 py-1 mr-2">THM</span>
+                                <span>TryHackMe (Guided Learning)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="bg-green-900 rounded px-2 py-1 mr-2">DVWA</span>
+                                <span>Damn Vulnerable Web App</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="bg-green-900 rounded px-2 py-1 mr-2">Juice Shop</span>
+                                <span>OWASP Vulnerable Web App</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="bg-green-900 rounded px-2 py-1 mr-2">Vulnhub</span>
+                                <span>Free Vulnerable VMs</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <h3 class="text-2xl font-bold mb-4 text-center">Career Options</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-green-900 bg-opacity-20 rounded p-4 text-center">
+                            <h4 class="font-bold">Penetration Tester</h4>
+                        </div>
+                        <div class="bg-green-900 bg-opacity-20 rounded p-4 text-center">
+                            <h4 class="font-bold">Red Teamer</h4>
+                        </div>
+                        <div class="bg-green-900 bg-opacity-20 rounded p-4 text-center">
+                            <h4 class="font-bold">Bug Bounty Hunter</h4>
+                        </div>
+                        <div class="bg-green-900 bg-opacity-20 rounded p-4 text-center">
+                            <h4 class="font-bold">Security Analyst</h4>
+                        </div>
+                        <div class="bg-green-900 bg-opacity-20 rounded p-4 text-center">
+                            <h4 class="font-bold">Security Consultant</h4>
+                        </div>
+                        <div class="bg-green-900 bg-opacity-20 rounded p-4 text-center">
+                            <h4 class="font-bold">Security Engineer</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-black bg-opacity-70 py-8 border-t border-green-900">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4">"Ethical hacking isn't just about breaking into stuff—it's about truly understanding how things work, how they can break, and how to make them better."</p>
+            <p class="text-sm">© 2023 Ethical Hacking Explained | All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Matrix background effect
+        function createMatrixEffect() {
+            const chars = "日ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍｦｲｸｺｿﾁﾄﾉﾌﾔﾖﾙﾚﾛﾝ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const canvas = document.getElementById('matrix');
+            
+            canvas.style.fontFamily = '"Courier New", monospace';
+            canvas.style.fontSize = '16px';
+            canvas.style.lineHeight = '16px';
+            
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            
+            const columns = Math.floor(width / 16);
+            const drops = [];
+            
+            // Initialize drops
+            for (let i = 0; i < columns; i++) {
+                drops[i] = Math.floor(Math.random() * -100);
+            }
+            
+            // Drawing function
+            function draw() {
+                // Set canvas size
+                canvas.width = width;
+                canvas.height = height;
+                
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = 'rgba(0, 10, 0, 0.05)';
+                ctx.fillRect(0, 0, width, height);
+                
+                ctx.fillStyle = '#00ff41';
+                
+                for (let i = 0; i < drops.length; i++) {
+                    const text = chars[Math.floor(Math.random() * chars.length)];
+                    const x = i * 16;
+                    const y = drops[i] * 16;
+                    
+                    ctx.fillText(text, x, y);
+                    
+                    if (y > height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    
+                    drops[i]++;
+                }
+            }
+            
+            // Set interval for animation
+            setInterval(draw, 50);
+        }
+        
+        // Initialize effects when page loads
+        window.onload = function() {
+            createMatrixEffect();
+            
+            // Add hover effects to phase cards
+            const phaseCards = document.querySelectorAll('.phase-card');
+            phaseCards.forEach(card => {
+                card.addEventListener('mouseover', function() {
+                    const num = this.querySelector('span').textContent;
+                    const colorMap = {
+                        '1': 'from-purple-500 to-pink-500',
+                        '2': 'from-pink-500 to-red-500',
+                        '3': 'from-red-500 to-orange-500',
+                        '4': 'from-orange-500 to-yellow-500',
+                        '5': 'from-yellow-500 to-green-500'
+                    };
+                    
+                    this.classList.add(`bg-gradient-to-br`, colorMap[num]);
+                    this.classList.remove('hacker-card');
+                });
+                
+                card.addEventListener('mouseout', function() {
+                    this.className = this.className.replace(/bg-gradient-to-br from-\w+-\d+ to-\w+-\d+/g, '');
+                    this.classList.add('hacker-card');
+                });
+            });
+        };
+    </script>
+</body>
+</html>
